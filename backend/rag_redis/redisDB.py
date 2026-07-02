@@ -2,10 +2,13 @@ import redis
 import json
 from datetime import datetime
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 
-pool = redis.ConnectionPool(host='localhost', port=6379, db=0, decode_responses=True)
+
+redis_url = os.environ.get("REDIS_URL", "redis://localhost:6379")
+pool = redis.ConnectionPool.from_url(redis_url, decode_responses=True)
 
 
 class RedisDB:

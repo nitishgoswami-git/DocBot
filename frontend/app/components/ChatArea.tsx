@@ -19,7 +19,7 @@ export default function ChatArea() {
   const [rateLimited, setRateLimited] = useState(false);
 
   const handleUpgrade = async () => {
-    const res = await fetch("http://127.0.0.1:8000/payment/create-checkout-session", {
+    const res = await fetch(`${process.env.BACKEND_URL}/payment/create-checkout-session`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user_id: userId }),
@@ -40,7 +40,7 @@ export default function ChatArea() {
     setMessages((prev) => [...prev, newMessage]);
     setInput("");
 
-    const response = await fetch("http://127.0.0.1:8000/chat/", {
+    const response = await fetch(`${process.env.BACKEND_URL}/chat/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

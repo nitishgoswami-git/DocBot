@@ -47,7 +47,7 @@ export default function Upload() {
       formData.append("user_id", userId ?? "");
       formData.append("SESSIONID", sessionId);
 
-      const response = await fetch("http://127.0.0.1:8000/upload", {
+      const response = await fetch(`${process.env.BACKEND_URL}/upload`, {
         method: "POST",
         body: formData,
       });
@@ -60,7 +60,7 @@ export default function Upload() {
       setRes((prev) => [...prev, status]);
 
       const es = new EventSource(
-        `http://127.0.0.1:8000/upload/progress/${job_id}`,
+        `${process.env.BACKEND_URL}/upload/progress/${job_id}`,
       );
 
       es.addEventListener("progress", (event) => {

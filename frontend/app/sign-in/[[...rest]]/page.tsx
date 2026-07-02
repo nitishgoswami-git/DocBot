@@ -8,11 +8,10 @@ export default function SignInPage() {
           variables: {
             colorPrimary: "#6c47ff",
             colorBackground: "#1f2937",
-            colorInputBackground: "#111827",
-            colorText: "#f9fafb",
-            colorTextSecondary: "rgba(255,255,255,0.5)",
-            colorInputText: "#f9fafb",
-            borderRadius: "8px",
+            colorInput: "#111827", // Fixes the exact build error
+            colorForeground: "#f9fafb", // Replaces colorText
+            colorMutedForeground: "rgba(255,255,255,0.5)", // Replaces colorTextSecondary
+            colorInputForeground: "#f9fafb", // Replaces colorInputText
           },
           elements: {
             card: "border border-white/10 shadow-none",

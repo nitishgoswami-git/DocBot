@@ -1,0 +1,75 @@
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+backvenv/
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# Python Cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Logs
+*.log
+
+# SQLite
+*.db
+*.sqlite3
+
+# ==========================
+# ChromaDB
+# ==========================
+chroma/
+chroma_db/
+backend/chroma/
+backend/chroma_db/
+db/
+
+# ==========================
+# Redis
+# ==========================
+dump.rdb
+appendonly.aof
+redis-data/
+redis/
+
+# ==========================
+# Next.js
+# ==========================
+node_modules/
+.next/
+out/
+.next/
+.tmp/
+# Turbopack & Local Build Cache
+frontend/dev/cache/
+*.sst
+
+# Build
+dist/
+build/
+
+# ==========================
+# IDE
+# ==========================
+.vscode/
+.idea/
+
+# ==========================
+# OS
+# ==========================
+.DS_Store
+Thumbs.db

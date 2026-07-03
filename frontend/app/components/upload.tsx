@@ -47,7 +47,7 @@ export default function Upload() {
       formData.append("user_id", userId ?? "");
       formData.append("SESSIONID", sessionId);
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/upload`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/upload/`, {
         method: "POST",
         body: formData,
       });

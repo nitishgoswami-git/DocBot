@@ -1,10 +1,14 @@
 import chromadb
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 
-chroma_client = chromadb.PersistentClient(path='./db/')
-
+chroma_client = chromadb.CloudClient(
+  api_key= os.environ.get("CHROMA_API_KEY"),
+  tenant= os.environ.get("CHROMA_TENANT"),
+  database= os.environ.get("CHROMA_DATABASE")
+)
 
 class ChromaDB:
     def __init__(self, name : str = "my_collection"):

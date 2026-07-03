@@ -14,8 +14,8 @@ origins = [
 ]
 app.add_middleware(
     CORSMiddleware,
-    # allow_origins=origins,
-    allow_origins=["*"],
+    allow_origin_regex=r"https://doc-bot(-[a-z0-9]+)?-nitish-s-projects-d51cbfd4\.vercel\.app|https://doc-bot-rho\.vercel\.app",
+    # allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

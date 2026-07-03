@@ -4,14 +4,13 @@ from routers.upload import upload_router
 from routers.health import health_router
 from routers.payment import payment_router
 from fastapi.middleware.cors import CORSMiddleware
-
+import os
 
 app = FastAPI()
 
 
 origins = [
-    "http://localhost",
-    "http://localhost:3000",
+    os.environ.get("ORIGIN_URL"),
 ]
 app.add_middleware(
     CORSMiddleware,

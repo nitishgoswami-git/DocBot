@@ -47,7 +47,12 @@ async def webhook(request: Request):
         stripe_customer_id = getattr(session, "customer", None)
 
         if clerk_user_id:
-            db = SupabaseDB()
-            db.upsert_user(clerk_user_id, stripe_customer_id)
+            try:
+                db = SupabaseDB()
+                db.upsert_user(clerk_user_id, stripe_customer_id)
+                print(f"Upserted user: {clerk_user_id} with plan: pro")
+            except Exception as e:
+                print(f"Supabase error: {e}")
+                raise HTTPException(status_code=500, detail=str(e))
 
     return {"status": "ok"}

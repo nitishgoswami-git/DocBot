@@ -22,8 +22,8 @@ async def checkout(request: CheckoutRequest):
             mode="subscription",
             line_items=[{"price": os.getenv("STRIPE_PRICE_ID"), "quantity": 1}],
             client_reference_id=request.user_id,
-            success_url="http://localhost:3000/?payment=success",
-            cancel_url="http://localhost:3000/?payment=cancelled",
+            success_url=f"{os.getenv('FRONTEND_URL')}/?payment=success",
+            cancel_url=f"{os.getenv('FRONTEND_URL')}/?payment=cancelled",
         )
         return {"url": session.url}
     except Exception as e:
